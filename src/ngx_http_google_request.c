@@ -94,8 +94,8 @@ static ngx_int_t
 ngx_http_google_request_parse_redirect(ngx_http_request_t    * r,
                                        ngx_http_google_ctx_t * ctx)
 {
-  ctx->uri->data += 2;
-  ctx->uri->len  -= 2;
+  ctx->uri->data += 7;
+  ctx->uri->len  -= 7;
   
   u_char * last   = ctx->uri->data + ctx->uri->len;
   u_char * slash  = ngx_strlchr(ctx->uri->data, last, '/');
@@ -262,7 +262,7 @@ ngx_http_google_request_parse_host(ngx_http_request_t    * r,
   glcf = ngx_http_get_module_loc_conf(r, ngx_http_google_filter_module);
   
   // redirect
-  if (ctx->uri->len > 2 && !ngx_strncmp(ctx->uri->data, "/~", 2))
+  if (ctx->uri->len > 2 && !ngx_strncmp(ctx->uri->data, "/GFWGFW", 7))
   {
     ctx->type = ngx_http_google_type_redirect;
     if (ngx_http_google_request_parse_redirect(r, ctx)) return NGX_ERROR;
