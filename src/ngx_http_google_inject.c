@@ -126,6 +126,20 @@ ngx_http_google_inject_subs(ngx_conf_t * cf)
     
     if (ngx_http_google_inject_subs_args(cf,
                                          "subs_filter", 3,
+                                         "(www|ssl)\\.gstatic\\.com)",
+                                         "www.gstatic.cn",
+                                         "igr"))
+      break;
+
+    if (ngx_http_google_inject_subs_args(cf,
+                                         "subs_filter", 3,
+                                         "'/xjs/",
+                                         "'//www.google.cn/xjs/",
+                                         "igr"))
+      break;
+
+    if (ngx_http_google_inject_subs_args(cf,
+                                         "subs_filter", 3,
                                          "([0-9A-Za-z.-]+\\.gstatic\\.com)",
                                          "$google_host/!$1",
                                          "igr"))
