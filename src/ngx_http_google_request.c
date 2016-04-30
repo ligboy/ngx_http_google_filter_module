@@ -262,7 +262,7 @@ ngx_http_google_request_parse_host(ngx_http_request_t    * r,
   glcf = ngx_http_get_module_loc_conf(r, ngx_http_google_filter_module);
   
   // redirect
-  if (ctx->uri->len > 2 && !ngx_strncmp(ctx->uri->data, "/!", 2))
+  if (ctx->uri->len > 2 && !ngx_strncmp(ctx->uri->data, "/~", 2))
   {
     ctx->type = ngx_http_google_type_redirect;
     if (ngx_http_google_request_parse_redirect(r, ctx)) return NGX_ERROR;
