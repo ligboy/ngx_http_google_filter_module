@@ -161,6 +161,13 @@ ngx_http_google_inject_subs(ngx_conf_t * cf)
     
     if (ngx_http_google_inject_subs_args(cf,
                                          "subs_filter", 3,
+                                         "((id)\\.google\\.com)",
+                                         "$google_host/GFWGFW$1",
+                                         "igr"))
+      break;
+
+    if (ngx_http_google_inject_subs_args(cf,
+                                         "subs_filter", 3,
                                          "((apis)\\.google\\.com)",
                                          "gligboy.oss-cn-hangzhou.aliyuncs.com/GFWGFW$1",
                                          "igr"))
